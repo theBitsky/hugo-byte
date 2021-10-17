@@ -1,0 +1,36 @@
+<div>
+  <br>
+  <!-- for basic page -->
+  {{ if eq .Type "page" }}
+    <nav class="breadcrumbs">
+      <a href="/">Home</a>
+      <span class="splitter">/</span>
+      <span>{{ .Title }}</span>
+    </nav>
+  {{ end }}
+  <!-- for a blog post -->
+  {{ if eq .Type "blog" }}
+    {{ .Scratch.Set "go_back_url" "/blog" }}
+    {{ .Scratch.Set "go_back_label" "Go Back To Blog" }}
+    {{ partialCached "go_back.html" . }}
+  {{ end }}
+  <!-- for a note -->
+  {{ if eq .Type "notes" }}
+    {{ .Scratch.Set "go_back_url" "/notes" }}
+    {{ .Scratch.Set "go_back_label" "Go Back To Notes" }}
+    {{ partialCached "go_back.html" . }}
+  {{ end }}
+  <article class="content">
+    <!--<header>
+      <h1 class="title">
+        <a class="title-link" href="{{ .Permalink | safeURL }}">
+          {{ .Title }}
+        </a>
+      </h1>
+    </header>-->
+
+    <div class="content__inner">
+      {{ .Content }}
+    </div>
+  </article>
+</div>

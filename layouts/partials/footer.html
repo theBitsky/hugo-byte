@@ -1,0 +1,34 @@
+{{ if not .Site.Params.hideFooter | default false }}
+  <footer class="footer">
+    <section class="container">
+      <div class="footer__inner">
+        <div>
+          {{ if not .Site.Params.hideCopyright }}
+            ©
+            {{ with .Site.Params.author }} {{ . }} {{ end }}
+            {{ now.Year }}
+          {{ end }}
+        </div>
+        <div>
+          <nav class="navbar">
+            {{ with .Site.Menus.footer}}
+              {{ range sort . }}
+                <a class="navbar__link" href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+              {{ end }}
+            {{ end }}
+          </nav>
+        </div>
+        <div>
+          {{ if not .Site.Params.hideCredits }}
+            {{ i18n "powered_by" }} <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/kowalevski">Midnight theme</a>
+          {{ end }}
+          {{ if .Site.Params.commit }}
+            {{ if .GitInfo }}
+              [<a href="{{ .Site.Params.commit }}/{{ .GitInfo.Hash }}">{{ .GitInfo.AbbreviatedHash }}</a>]
+            {{ end }}
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  </footer>
+{{ end }}

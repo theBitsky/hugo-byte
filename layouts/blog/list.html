@@ -1,0 +1,25 @@
+{{ define "title" }}
+  {{ title (i18n (lower .Title)) | default .Title }} · {{ .Site.Title }}
+{{ end }}
+{{ define "content" }}
+  <div>
+    <div class="page-title">
+      <h1>
+          {{ title (i18n (lower .Title)) | default .Title }}
+      </h1>
+    </div>
+    <div class="page-grid">
+      {{ partial "side-panel.html" . }}
+      <div>
+        <div class="posts-list">
+          {{- range .Paginator.Pages -}}
+            {{- .Render "li" -}}
+          {{- end -}}
+        </div>
+        {{ partial "pagination.html" . }}
+      </div>
+    </div>
+  </div>
+{{ end }}
+
+

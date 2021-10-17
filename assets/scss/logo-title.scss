@@ -1,0 +1,17 @@
+.logo-title {
+  font-size: 20px;
+  font-family: "Roboto Mono", monospace;
+  font-weight: bold;
+  color: $main-text-color-dark;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+@media (max-width: 690px) {
+  .logo-title {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+  }
+}

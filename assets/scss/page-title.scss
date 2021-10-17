@@ -1,0 +1,48 @@
+.page-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* width: calc(75% - 25px); */
+  margin-bottom: 15px;
+  border-bottom: 3px solid #3f3f42;
+
+  // .title {
+  //   font-family: "Roboto Mono", monospace;
+  //   font-size: 2em;
+  //   display: inline-block;
+
+  //   border-bottom: 3px solid #3f3f42;
+  // }
+}
+
+.page-title h1 {
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+@media (max-width: 1100px) {
+  .page-title {
+    width: 100%;
+  }
+}
+
+@media (max-width: 690px) {
+  .page-title button {
+    display: none;
+  }
+
+  .page-title {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .page-title h1 {
+    font-size: 1.6rem;
+  }
+
+  .page-title > div {
+    display: none;
+  }
+}
+
+

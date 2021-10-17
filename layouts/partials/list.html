@@ -1,0 +1,33 @@
+<div>
+  {{ .Content }} 
+  <div class="posts-list">
+    {{ $paginate := .Paginate (where .Site.Pages ".Params.public" "==" true) }}
+    {{ range $paginate.Pages.ByDate.Reverse }}
+      <article class="post-card">
+        <!--{imgSrc && linkView?.({ to: link, className: styles.thumbnail, children: <>
+            {imgSrc && !imgView && <img src={imgSrc} alt={title} />}
+            {imgSrc && imgView && imgView({ imgSrc, title })}
+        </>})}-->
+        <div class="post-card__content">
+          <header class="post-card__header">
+            {{ with .Page.Params.Tags }}
+              {{ partial "taxonomy/tags.html" . }}
+            {{ end }}
+            <a class="post-card__title" href="{{ .Params.externalLink | default .RelPermalink }}">{{ .Title }}</a>
+          </header>
+          <section class="post-card__excerpt">
+            {{ .Summary }}
+          </section>
+          <footer>
+            <div class="post-card__info">
+              <time dateTime={{ .Date.Format (.Site.Params.dateFormat | default "02/01/2006" ) }}>
+                {{ .Date.Format (.Site.Params.dateFormat | default "02/01/2006" ) }}
+              </time>
+            </div>
+          </footer>
+        </div>
+      </article>
+    {{ end }}
+  </div>
+  {{ partial "pagination.html" . }}
+</div>
