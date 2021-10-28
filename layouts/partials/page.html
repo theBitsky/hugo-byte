@@ -12,13 +12,23 @@
   {{ if eq .Type "blog" }}
     {{ .Scratch.Set "go_back_url" "/blog" }}
     {{ .Scratch.Set "go_back_label" "Go Back To Blog" }}
-    {{ partialCached "go_back.html" . }}
+    {{ partial "go_back.html" . }}
   {{ end }}
   <!-- for a note -->
-  {{ if eq .Type "notes" }}
+  {{ if and (eq .Type "notes") (eq .Kind "section") }}
+    <nav class="breadcrumbs">
+      <a href="/">Home</a>
+      <span class="splitter">/</span>
+      <span>{{ .Title }}</span>
+    </nav>
+  {{ end }}
+  {{ if and (eq .Type "notes") (eq .Kind "page") }}
     {{ .Scratch.Set "go_back_url" "/notes" }}
     {{ .Scratch.Set "go_back_label" "Go Back To Notes" }}
-    {{ partialCached "go_back.html" . }}
+    {{ partial "go_back.html" . }}
+    <div class="page-title">
+      <h1>Note</h1>
+    </div>
   {{ end }}
   <article class="content">
     <!--<header>

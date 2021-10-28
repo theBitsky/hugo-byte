@@ -1,27 +1,6 @@
 <div class="panel">
   <!--<SubscribingCard />-->
-  <div class="info-card">
-    <img class="avatar" src="{{ .Site.Params.avatarURL }}" alt="avatar" />
-    <div>
-      {{ range .Site.Params.blurbContent }}
-        <p>{{ . }}</p>
-      {{ end }}
-    </div>
-  </div>
-  <div class="info-card">
-    <div class="tags-card">
-      <h3>
-        <span>Tags</span>
-        <!--<Icon src={icons.emojiLabel.src} widthSize="25px" />-->
-      </h3>
-      <div class="post-tags post-tags_column">
-        {{ range .Site.Params.sidePanelTags }}
-          <div class="post-tags__tag">
-            <a href="/tags/{{ . }}" class="post-tag">#{{ . }}</a>
-          </div>
-        {{ end }}
-      </div>
-      <a href="/tags" class="tags-card__more">...more</a>
-    </div>
-  </div>
+  {{ partial "about_block.html" . }}
+  {{ partial "socials_block.html" . }}
+  {{ partial "tags_block.html" . }}
 </div>

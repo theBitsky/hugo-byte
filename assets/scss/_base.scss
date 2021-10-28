@@ -111,6 +111,8 @@ html {
 
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+
+  height: 100%;
 }
 *,
 *:before,
@@ -271,6 +273,7 @@ ul.contains-task-list {
 }
 
 body {
+  height: 100%;
   font-family: "Roboto", sans-serif;
   line-height: 1.5;
   text-rendering: optimizeSpeed;
@@ -318,9 +321,9 @@ body {
     font-size: 1em;
   }
 
-  a {
-    color: var(--common-link-color);
-  }
+  // a {
+  //   color: var(--common-link-color);
+  // }
 
   blockquote,
   dl,

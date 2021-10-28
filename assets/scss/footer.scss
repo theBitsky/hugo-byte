@@ -7,6 +7,10 @@
   &__inner {
     display: flex;
     justify-content: space-between;
+
+    a {
+      color: $second-text-color-dark;
+    }
   }
 }
 

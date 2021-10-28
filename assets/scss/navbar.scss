@@ -7,18 +7,17 @@
   &__link {
     margin-right: 15px;
     color: $second-text-color-dark;
+
+    &_active {
+      color: $second-text-color-dark;
+      border-bottom: 2px solid;
+    }
   }
 
   &__link:last-child {
     margin-right: 0;
   }
 }
-
-// .active {
-//   composes: navlink;
-//   color: var(--theme-dark-second-text-color);
-//   border-bottom: borderline;
-// }
 
 .line {
   margin-left: 10px;

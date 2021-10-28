@@ -1,0 +1,35 @@
+.socials-list {
+  ul {
+    margin-bottom: 0;
+    list-style: none;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding: 0;
+
+    li {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      font-family: "Roboto Mono", monospace;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    i {
+      font-size: 2rem;
+    }
+
+    a {
+      font-size: 1.2rem;
+      color: $main-text-color-dark;
+      // margin-left: 15px;
+
+      &:first-child {
+        margin-right: 15px;
+      }
+    }
+  }
+}

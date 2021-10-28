@@ -1,0 +1,9 @@
+<div class="info-card">
+  <img class="avatar" src="{{ .Site.Params.avatarURL }}" alt="avatar" />
+  <div>
+    {{ range .Site.Params.blurbContent }}
+      <p>{{ . }}</p>
+    {{ end }}
+  </div>
+</div>
+

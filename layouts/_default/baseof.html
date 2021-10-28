@@ -103,13 +103,17 @@
   <body class="preload-transitions {{ $csClass }}{{ if .Site.Params.rtl }} rtl{{ end }}"
         onload="{{ if .Site.Params.enableTwemoji }} twemoji.parse(document.body); {{ end }}"
   >
-    {{ partial "header.html" . }}
+    <div class="main-layout">
+      <div>
+        {{ partial "header.html" . }}
 
-    <main class="container">
-      {{ block "content" . }}{{ end }}
-    </main>
+        <main class="container">
+          {{ block "content" . }}{{ end }}
+        </main>
+      </div>
 
-    {{ partial "footer.html" . }}
+        {{ partial "footer.html" . }}
+    </div>
 
     {{ if .Site.IsServer }}
       {{ $script := resources.Get "js/gravel.js" }}

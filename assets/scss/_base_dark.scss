@@ -2,10 +2,6 @@
   color: $second-text-color-dark;
   background-color: $bg-color-dark;
 
-  // a {
-  //   color: $link-color-dark;
-  // }
-
   h1,
   h2,
   h3,
@@ -46,7 +42,7 @@
   }
 
   blockquote {
-    border-left: 2px solid $alt-bg-color-dark;
+    border-left: 3px solid $link-color-dark;
   }
 
   table td,
