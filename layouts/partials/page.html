@@ -31,16 +31,28 @@
     </div>
   {{ end }}
   <article class="content">
-    <!--<header>
-      <h1 class="title">
-        <a class="title-link" href="{{ .Permalink | safeURL }}">
-          {{ .Title }}
-        </a>
-      </h1>
-    </header>-->
-
     <div class="content__inner">
-      {{ .Content }}
+      <header>
+        {{ if eq .Type "blog" }}
+          <h1>{{ .Title }}</h1>
+        {{ end }}
+        {{ if and (eq .Kind "page") (or (eq .Type "blog") (eq .Type "notes")) }}
+          <div class="content__info">
+            <time dateTime={{ .Date.Format (.Site.Params.dateFormat | default "02/01/2006" ) }}>
+              {{ .Date.Format (.Site.Params.dateFormat | default "02/01/2006" ) }}
+            </time>
+          </div>
+        {{ end }}
+        {{ with .Params.Tags }}
+          {{ partial "taxonomy/tags.html" . }}
+        {{ end }}
+        {{ if and (eq .Kind "page") (or (eq .Type "blog") (eq .Type "notes")) }}
+          <hr />
+        {{ end }}
+      </header>
+      <section>
+        {{ .Content }}
+      </section>
     </div>
   </article>
 </div>
