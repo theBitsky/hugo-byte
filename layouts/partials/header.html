@@ -9,7 +9,7 @@
               {{ range sort . }}
                 <a
                   class="navbar__link"
-                  href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+                  href="{{ .URL | relLangURL }}">{{ lower .Name }}/</a>
               {{ end }}
             {{ end }}
           </nav>
