@@ -31,6 +31,28 @@
     </div>
   {{ end }}
   <article class="content">
+    {{ if .Page.Params.Image }}
+        <div class="content__image">
+          <Img class="content__image-inner" src="{{ .Page.Params.Image }}" alt="{{ .Title }}" ></Img>
+          {{ if .Page.Params.ImageCopyright }}
+            <div
+              style="
+                font-size: 14px;
+                text-align: right;
+                margin-top: 10px;
+                margin-right: 20px;
+              "
+            >
+              Photo by 
+              {{ if .Page.Params.ImageCopyrightUrl }}
+                <a href="{{.Page.Params.ImageCopyrightUrl}}">{{ .Page.Params.ImageCopyright }}</a>
+              {{ else }}
+                {{ .Page.Params.ImageCopyright }}
+              {{ end }}
+            </div>
+          {{ end }}
+        </div>
+    {{ end }}
     <div class="content__inner">
       <header>
         {{ if eq .Type "blog" }}
