@@ -1,3 +1,3 @@
-module github.com/kowalevski/hugo-gravel
+module github.com/byteski/hugo-byte
 
 go 1.16

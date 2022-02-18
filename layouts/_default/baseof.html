@@ -27,35 +27,35 @@
     <link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
 
     {{ if .Site.IsServer }}
-      {{ $cssOpts := (dict "targetPath" "css/gravel.css" "enableSourceMap" true ) }}
-      {{ $styles := resources.Get "scss/gravel.scss" | resources.ExecuteAsTemplate "style.gravel.css" . | toCSS $cssOpts }}
+      {{ $cssOpts := (dict "targetPath" "css/byte.css" "enableSourceMap" true ) }}
+      {{ $styles := resources.Get "scss/byte.scss" | resources.ExecuteAsTemplate "style.byte.css" . | toCSS $cssOpts }}
       <link rel="stylesheet" href="{{ $styles.RelPermalink }}" media="screen">
     {{ else }}
-      {{ $cssOpts := (dict "targetPath" "css/gravel.css" ) }}
-      {{ $styles := resources.Get "scss/gravel.scss" | resources.ExecuteAsTemplate "style.gravel.css" . | toCSS $cssOpts | minify | fingerprint }}
+      {{ $cssOpts := (dict "targetPath" "css/byte.css" ) }}
+      {{ $styles := resources.Get "scss/byte.scss" | resources.ExecuteAsTemplate "style.byte.css" . | toCSS $cssOpts | minify | fingerprint }}
       <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" crossorigin="anonymous" media="screen" />
     {{ end }}
 
     {{ if .Site.Params.rtl }}
       {{ if .Site.IsServer }}
-        {{ $cssOpts := (dict "targetPath" "css/gravel-rtl.css" "enableSourceMap" true ) }}
-        {{ $styles := resources.Get "scss/gravel-rtl.scss" | resources.ExecuteAsTemplate "style.gravel-rtl.css" . | toCSS $cssOpts }}
+        {{ $cssOpts := (dict "targetPath" "css/byte-rtl.css" "enableSourceMap" true ) }}
+        {{ $styles := resources.Get "scss/byte-rtl.scss" | resources.ExecuteAsTemplate "style.byte-rtl.css" . | toCSS $cssOpts }}
         <link rel="stylesheet" href="{{ $styles.RelPermalink }}" media="screen">
       {{ else }}
-        {{ $cssOpts := (dict "targetPath" "css/gravel-rtl.css" ) }}
-        {{ $styles := resources.Get "scss/gravel-rtl.scss" | resources.ExecuteAsTemplate "style.gravel-rtl.css" . | toCSS $cssOpts | minify | fingerprint }}
+        {{ $cssOpts := (dict "targetPath" "css/byte-rtl.css" ) }}
+        {{ $styles := resources.Get "scss/byte-rtl.scss" | resources.ExecuteAsTemplate "style.byte-rtl.css" . | toCSS $cssOpts | minify | fingerprint }}
         <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" crossorigin="anonymous" media="screen" />
       {{ end }}
     {{ end }}
 
     {{ if  or (eq .Site.Params.colorScheme "auto") (eq .Site.Params.colorScheme "dark") }}
       {{ if .Site.IsServer }}
-        {{ $cssOpts := (dict "targetPath" "css/gravel-dark.css" "enableSourceMap" true ) }}
-        {{ $styles := resources.Get "scss/gravel-dark.scss" | resources.ExecuteAsTemplate "style.gravel-dark.css" . | toCSS $cssOpts }}
+        {{ $cssOpts := (dict "targetPath" "css/byte-dark.css" "enableSourceMap" true ) }}
+        {{ $styles := resources.Get "scss/byte-dark.scss" | resources.ExecuteAsTemplate "style.byte-dark.css" . | toCSS $cssOpts }}
         <link rel="stylesheet" href="{{ $styles.RelPermalink }}" media="screen">
       {{ else }}
-        {{ $cssOpts := (dict "targetPath" "css/gravel-dark.css" ) }}
-        {{ $styles := resources.Get "scss/gravel-dark.scss" | resources.ExecuteAsTemplate "style.gravel-dark.css" . | toCSS $cssOpts | minify | fingerprint }}
+        {{ $cssOpts := (dict "targetPath" "css/byte-dark.css" ) }}
+        {{ $styles := resources.Get "scss/byte-dark.scss" | resources.ExecuteAsTemplate "style.byte-dark.css" . | toCSS $cssOpts | minify | fingerprint }}
         <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" crossorigin="anonymous" media="screen" />
       {{ end }}
     {{ end }}
@@ -116,10 +116,10 @@
     </div>
 
     {{ if .Site.IsServer }}
-      {{ $script := resources.Get "js/gravel.js" }}
+      {{ $script := resources.Get "js/byte.js" }}
       <script src="{{ $script.RelPermalink }}"></script>
     {{ else }}
-      {{ $script := resources.Get "js/gravel.js" | minify | fingerprint }}
+      {{ $script := resources.Get "js/byte.js" | minify | fingerprint }}
       <script src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}"></script>
     {{ end }}
 

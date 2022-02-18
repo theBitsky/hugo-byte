@@ -1,7 +1,6 @@
-# Hugo Gravel
+# Hugo Byte
 
 A simple theme for [Hugo](https://gohugo.io/).
 
-⚠️ W***Work In Progress***
 
 
