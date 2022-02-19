@@ -1,14 +1,4 @@
 <article class="post-card">
-  <!--{imgSrc && linkView?.({ to: link, className: styles.thumbnail, children: <>
-      {imgSrc && !imgView && <img src={imgSrc} alt={title} />}
-      {imgSrc && imgView && imgView({ imgSrc, title })}
-  </>})}-->
-  <!--
-  {image && (
-      <Link className={styles.thumbnail} to={to}>
-        {<Img className={styles.thumbnailInner} fluid={image}></Img>}
-      </Link>
-    )}-->
   {{ if .Page.Params.Image }}
     <a href="{{ .Params.externalLink | default .RelPermalink }}" class="post-card__thumbnail">
       <img src="{{ .Page.Params.Image }}" alt="" />
