@@ -1,7 +1,7 @@
 <div>
   <br>
   <!-- for basic page -->
-  {{ if eq .Type "page" }}
+  {{ if and (eq .Type "page") (eq .Type "notes") }}
     <nav class="breadcrumbs">
       <a href="/">Home</a>
       <span class="splitter">/</span>
@@ -9,7 +9,7 @@
     </nav>
   {{ end }}
   <!-- for a blog post -->
-  {{ if eq .Type "blog" }}
+  {{ if eq .Params.Type "blog" }}
     {{ .Scratch.Set "go_back_url" "/blog" }}
     {{ .Scratch.Set "go_back_label" "Go Back To Blog" }}
     {{ partial "go_back.html" . }}
@@ -22,18 +22,15 @@
       <span>{{ .Title }}</span>
     </nav>
   {{ end }}
-  {{ if and (eq .Type "notes") (eq .Kind "page") }}
+  {{ if and (eq .Kind "page") ((not (isset .Params "type")) | or (eq .Params.type "") | or (eq .Page.Params.type "note")) }}
     {{ .Scratch.Set "go_back_url" "/notes" }}
     {{ .Scratch.Set "go_back_label" "Go Back To Notes" }}
     {{ partial "go_back.html" . }}
-    <div class="page-title">
-      <h1>Note</h1>
-    </div>
   {{ end }}
   <article class="content">
     {{ if .Page.Params.Image }}
         <div class="content__image">
-          <Img class="content__image-inner" src="{{ .Page.Params.Image }}" alt="{{ .Title }}" ></Img>
+      <Img class="content__image-inner" src="{{ .Site.BaseURL }}{{ .Page.Params.Image }}" alt="{{ .Title }}" ></Img>
           {{ if .Page.Params.ImageCopyright }}
             <div
               style="
@@ -55,12 +52,13 @@
     {{ end }}
     <div class="content__inner">
       <header>
-        {{ if eq .Type "blog" }}
+        {{ if eq .Params.Type "blog" }}
           <h1>{{ .Title }}</h1>
         {{ end }}
-        {{ if and (eq .Kind "page") (or (eq .Type "blog") (eq .Type "notes")) }}
+        {{ if and (eq .Kind "page") (or (eq .Params.Type "blog") (eq .Params.Type "note") (eq .Params.Type "") (not (isset .Params "type"))) }}
           <div class="content__info">
             <time dateTime={{ .Date.Format (.Site.Params.dateFormat | default "02/01/2006" ) }}>
+              <i aria-hidden="true" class="fa fa-calendar"></i>
               {{ .Date.Format (.Site.Params.dateFormat | default "02/01/2006" ) }}
             </time>
           </div>
@@ -77,4 +75,10 @@
       </section>
     </div>
   </article>
+  <div class="container">
+    <h3 class="monospace text-center bold">
+      Comments 💬
+    </h3>
+    {{ partial "posts/utterances.html" . }}
+  </div>
 </div>

@@ -1,14 +1,25 @@
 <div>
-  <br />
-  {{ .Content }} 
   <div class="posts-list">
     {{ $paginate := .Paginate (where .Site.Pages ".Params.public" "==" true) }}
     {{ range $paginate.Pages.ByDate.Reverse }}
       <article class="post-card">
-        <!--{imgSrc && linkView?.({ to: link, className: styles.thumbnail, children: <>
-            {imgSrc && !imgView && <img src={imgSrc} alt={title} />}
-            {imgSrc && imgView && imgView({ imgSrc, title })}
-        </>})}-->
+        {{ if (not (isset .Page.Params "type")) | or (eq .Page.Params.type "") | or (eq .Page.Params.type "note") }}
+          <a href="/notes" class="post-card__type post-card__type_note">
+            <i aria-hidden="true" class="fa fa-archive"></i>
+            /note
+          </a>
+        {{ end }}
+        {{ if eq .Page.Params.Type "blog" }}
+          <a href="/blog" class="post-card__type post-card__type_blog">
+            <i aria-hidden="true" class="fa fa-book"></i>
+            /blog
+          </a>
+        {{ end }}
+        {{ if .Page.Params.Image }}
+          <a href="{{ .Params.externalLink | default .RelPermalink }}" class="post-card__thumbnail">
+            <img src="{{ .Site.BaseURL }}{{ .Page.Params.Image }}" alt="" />
+          </a>
+        {{ end }}
         <div class="post-card__content">
           <header class="post-card__header">
             {{ with .Page.Params.Tags }}
@@ -17,11 +28,18 @@
             <a class="post-card__title" href="{{ .Params.externalLink | default .RelPermalink }}">{{ .Title }}</a>
           </header>
           <section class="post-card__excerpt">
-            {{ .Summary }}
+            <p>
+              {{ if .Page.Params.Excerpt }}
+                {{ .Page.Params.Excerpt }}
+              {{ else }}
+                {{ .Summary | safeHTML | truncate .Site.Params.SummaryLength }}
+              {{ end }}
+            </p>
           </section>
           <footer>
             <div class="post-card__info">
               <time dateTime={{ .Date.Format (.Site.Params.dateFormat | default "02/01/2006" ) }}>
+                <i aria-hidden="true" class="fa fa-calendar"></i>
                 {{ .Date.Format (.Site.Params.dateFormat | default "02/01/2006" ) }}
               </time>
             </div>

@@ -3285,7 +3285,7 @@ ul.contains-task-list {
 
 body {
   height: 100%;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto Mono", monospace;
   line-height: 1.5;
   text-rendering: optimizeSpeed;
   -webkit-font-smoothing: antialiased;
