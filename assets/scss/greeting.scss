@@ -1,0 +1,21 @@
+.greeting {
+    display: flex;
+    align-items: flex-start;
+    max-width: 900px;
+    width: 100%;
+    margin: 3rem auto 3rem auto;
+
+    h1 {
+      font-weight: bold;
+      color: #e5ad11;
+    }
+
+    & > img {
+      margin: 2rem 0 0 2rem;
+    }
+
+    &__read-more {
+      color: #f4f4f4;
+      font-weight: bold;
+    }
+}

@@ -1,10 +1,22 @@
 <br>
-<div class="page-title">
-  <h1>Feed</h1>
-</div>
-<div class="page-grid">
-  {{ partial "side-panel.html" . }}
-  <section>
-    {{ partial "list_all.html" . }}
-  </section>
-</div>
+<main>
+  <div class="greeting">
+    <div>
+      <h1>{{ .Site.Params.greetingTitle }}</h1>
+      {{ range .Site.Params.blurbContent }}
+        <p>{{ . }}</p>
+      {{ end }}
+      <p>More on <a class="greeting__read-more" href="/about"><i aria-hidden="true" class="fa fa-user color-skyblue"></i> about/</a></p>
+    </div>
+    <img class="avatar" src="{{ .Site.Params.avatarURL }}" alt="avatar" />
+  </div>
+  <div class="page-title">
+    <h1>Feed</h1>
+  </div>
+  <div class="page-grid">
+    <section>
+      {{ partial "list_all.html" . }}
+    </section>
+  </div>
+</main>
+
