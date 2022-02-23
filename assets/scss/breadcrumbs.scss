@@ -13,6 +13,12 @@
 
   a {
     color: var(--theme-dark-second-text-color);
+
+    &:hover,
+    &:active {
+      background: #f4f4f4;
+      color: #111827;
+    }
   }
 }
 

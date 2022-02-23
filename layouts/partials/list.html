@@ -13,44 +13,12 @@
   <div class="page-title">
     <h1>#{{ .Title }}</h1>
   </div>
-  <div class="page-grid">
-    {{ if eq .Type "tags" }}
-      {{ partial "side-panel" . }}
-    {{ end }}
+  <div>
     <section>
         <div class="posts-list">
           {{ range .Paginator.Pages }}
-            <article class="post-card">
-              {{ if .Page.Params.Image }}
-                <a href="{{ .Params.externalLink | default .RelPermalink }}" class="post-card__thumbnail">
-                  <img src="{{ .Page.Params.Image }}" alt="" />
-                </a>
-              {{ end }}
-              <div class="post-card__content">
-                <header class="post-card__header">
-                  {{ with .Page.Params.Tags }}
-                    {{ partial "taxonomy/tags.html" . }}
-                  {{ end }}
-                  <a class="post-card__title" href="{{ .Params.externalLink | default .RelPermalink }}">{{ .Title }}</a>
-                </header>
-                <section class="post-card__excerpt">
-                  <p>
-                    {{ if .Page.Params.Excerpt }}
-                      {{ .Page.Params.Excerpt }}
-                    {{ else }}
-                      {{ .Summary | safeHTML | truncate .Site.Params.SummaryLength }}
-                    {{ end }}
-                  </p>
-                </section>
-                <footer>
-                  <div class="post-card__info">
-                    <time dateTime={{ .Date.Format (.Site.Params.dateFormat | default "02/01/2006" ) }}>
-                      {{ .Date.Format (.Site.Params.dateFormat | default "02/01/2006" ) }}
-                    </time>
-                  </div>
-                </footer>
-              </div>
-            </article>
+            {{ .Scratch.Set "is_label_visible" true }}
+            {{ partial "li.html" . }}
           {{ end }}
       </div>
       {{ partial "pagination.html" . }}

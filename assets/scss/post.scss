@@ -4,7 +4,7 @@
   align-items: flex-start;
   justify-content: space-between;
   width: 100%;
-  border-bottom: 3px solid #1f2937;
+  border-bottom: 3px dashed #1f2937;
   margin-bottom: 1rem;
   padding-bottom: 1rem;
 
@@ -21,6 +21,12 @@
   &__info {
     width: 20%;
     text-align: right;
+
+    time {
+      i {
+        color: #c96a55;
+      }
+    }
   }
 
   header {
@@ -34,7 +40,10 @@
 
       &:hover,
       &:active {
-        text-decoration: underline;
+        // text-decoration: underline;
+
+        background: #f4f4f4;
+        color: #111827;
       }
     }
   }
@@ -46,26 +55,49 @@
   }
 
   &__type {
-    background: #2a99ad;
-    color: #111827;
+    // background: #2a99ad;
+    color: #f4f4f4;
     padding: 3px 10px;
-    border-radius: 3px;
+    // border-radius: 3px;
     margin-right: 1rem;
     font-weight: bold;
+    border: 2px solid #1f2938;
+    border-radius: 3px;
 
     &_blog {
-      background: #2a99ad;
+      //background: #2a99ad;
+      i {
+        color: #2a99ad;
+      }
     }
 
     &_note {
-      background: #e5ad0f;
+      //background: #e5ad0f;
+      i {
+        color: #e5ad0f;
+      }
     }
 
     &_left {
       position: absolute;
       top: 0px;
       left: 0px;
-      border-radius: 3px 0 3px 0;
+      border-radius: 0px 0 3px 0;
+      background: #111827;
+      border: none;
+      border-right: 2px solid #1f2938;
+      border-bottom: 2px solid #1f2938;
+    }
+
+    &:hover,
+    &:active {
+      background: #f4f4f4;
+      color: #111827;
+      border-color: #f4f4f4; 
+
+      i {
+        color: #111827;
+      }
     }
   }
 
@@ -86,6 +118,8 @@
     &:hover,
     &:active {
       text-decoration: none;
+      color: #111827;
+      background-color: #f4f4f4;
     }
   }
 }

@@ -17,5 +17,16 @@
     &__read-more {
       color: #f4f4f4;
       font-weight: bold;
+      padding: 0 3px;
+
+      &:hover,
+      &:active {
+        background: #f4f4f4; 
+        color: #111827;
+
+        i {
+          color: #111827;
+        }
+      }
     }
 }

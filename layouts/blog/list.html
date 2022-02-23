@@ -9,11 +9,8 @@
           {{ title (i18n (lower .Title)) | default .Title }}
       </h1>
     </div>
-    <div class="page-grid">
-      {{ partial "side-panel.html" . }}
-      <div>
-        {{ partial "list_blog.html" . }}
-      </div>
+    <div>
+      {{ partial "list_blog.html" . }}
     </div>
   </div>
 {{ end }}

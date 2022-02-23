@@ -5,12 +5,24 @@
   color: $second-text-color-dark;
 
   &__link {
-    margin-right: 15px;
+    margin-right: 8px;
     color: $second-text-color-dark;
+    padding: 0 2px 0 7px;
+    font-weight: bold;
 
     &_active {
       color: $second-text-color-dark;
       border-bottom: 2px solid;
+    }
+
+    &:hover,
+    &:active {
+      background: #f4f4f4;
+      color: #111827;
+
+      i {
+        color: #111827;
+      }
     }
   }
 

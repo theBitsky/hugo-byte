@@ -11,8 +11,10 @@
     align-items: center;
     margin-bottom: 1rem;
 
-    &:hover {
-      opacity: 0.6;
+    &:hover,
+    &:active {
+      background: #f4f4f4;
+      color: #111827;
     }
 
     span {

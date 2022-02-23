@@ -7,6 +7,12 @@
     font-family: "Roboto Mono";
     margin: 0.75rem 2.5rem 1.2rem 0;
     color: $second-text-color-dark;
+
+    &:hover,
+    &:active {
+      color: #111827;
+      background: #f4f4f4;
+    }
   }
 }
 

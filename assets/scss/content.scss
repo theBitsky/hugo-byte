@@ -18,6 +18,17 @@
   // background: #353535;
   // background: #1b253a;
 
+  .heading-link {
+    color: #f4f4f4 !important;
+    border: none !important;
+    opacity: 0.5;
+
+    &:hover,
+    &:active {
+      background: none !important;
+    }
+  }
+
   &__inner {
     padding: 40px 60px 40px 60px;
   }
@@ -159,9 +170,14 @@
 }
 
 .content h2,
-.content h3,
+.content h3 {
+  border-bottom-color: #3e4a62;
+  border-bottom-style: dashed;
+}
+
 .content hr {
   border-bottom-color: #3e4a62;
+  border-bottom-style: solid;
 }
 
 .content blockquote,
@@ -181,7 +197,7 @@ ul {
 }
 
 .content blockquote {
-  background: #484848;
+  background: #090e1a;
 }
 
 .content blockquote p {

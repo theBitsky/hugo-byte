@@ -1,24 +1,66 @@
-<article class="post-card">
-  <!--{imgSrc && linkView?.({ to: link, className: styles.thumbnail, children: <>
-      {imgSrc && !imgView && <img src={imgSrc} alt={title} />}
-      {imgSrc && imgView && imgView({ imgSrc, title })}
-  </>})}-->
-  <div class="post-card__content">
-    <header class="post-card__header">
-      {{ with .Page.Params.Tags }}
-        {{ partial "taxonomy/tags.html" . }}
-      {{ end }}
-      <a class="post-card__title" href="{{ .Params.externalLink | default .RelPermalink }}">{{ .Title }}</a>
-    </header>
-    <section class="post-card__excerpt">
-      {{ .Summary }}
-    </section>
-    <footer>
-      <div class="post-card__info">
-        <time dateTime={{ .Date.Format (.Site.Params.dateFormat | default "02/01/2006" ) }}>
-          {{ .Date.Format (.Site.Params.dateFormat | default "02/01/2006" ) }}
-        </time>
-      </div>
-    </footer>
+<article class="post">
+  <div class="post__inner">
+    {{ if .Page.Params.Image }}
+      <a class="post__image" href="{{ .Params.externalLink | default .RelPermalink }}">
+        <img src="{{ .Site.BaseURL }}{{ .Page.Params.Image }}" alt="" />
+      </a>
+    {{ end }}
+    <div>
+      <header>
+        {{ if .Scratch.Get "is_label_visible" }}
+          {{ if not .Page.Params.Image }}
+            {{ if (not (isset .Page.Params "type")) | or (eq .Page.Params.type "") | or (eq .Page.Params.type "note") }}
+              <a href="/notes" class="post__type post__type_note">
+                <i aria-hidden="true" class="fa fa-archive"></i>
+                note/
+              </a>
+            {{ end }}
+            {{ if eq .Page.Params.Type "blog" }}
+              <a href="/blog" class="post__type post__type_blog">
+                <i aria-hidden="true" class="fa fa-book"></i>
+                blog/
+              </a>
+            {{ end }}
+          {{ end }}
+          {{ if .Page.Params.Image }}
+            {{ if (not (isset .Page.Params "type")) | or (eq .Page.Params.type "") | or (eq .Page.Params.type "note") }}
+              <a href="/notes" class="post__type post__type_left post__type_note">
+                <i aria-hidden="true" class="fa fa-archive"></i>
+                note/
+              </a>
+            {{ end }}
+            {{ if eq .Page.Params.Type "blog" }}
+              <a href="/blog" class="post__type post__type_left post__type_blog">
+                <i aria-hidden="true" class="fa fa-book"></i>
+                blog/
+              </a>
+            {{ end }}
+          {{ end }}
+        {{ end }}
+        <a href="{{ .Params.externalLink | default .RelPermalink }}">
+          <h4>{{ .Title }}</h4>
+        </a>
+      </header>
+      <section>
+        <p>
+          {{ if .Page.Params.Excerpt }}
+            {{ .Page.Params.Excerpt }}
+          {{ else }}
+            {{ .Summary | safeHTML | truncate .Site.Params.SummaryLength }}
+          {{ end }}
+          <a class="post__read-more" href="{{ .Params.externalLink | default .RelPermalink }}">Read more</a>
+        </p>
+        {{ with .Page.Params.Tags }}
+          {{ partial "taxonomy/tags.html" . }}
+        {{ end }}
+      </section>
+    </div>
+  </div>
+  <div class="post__info">
+    <time dateTime={{ .Date.Format (.Site.Params.dateFormat | default "02/01/2006" ) }}>
+      <i aria-hidden="true" class="fa fa-calendar"></i>
+      {{ .Date.Format (.Site.Params.dateFormat | default "02/01/2006" ) }}
+    </time>
   </div>
 </article>
+
