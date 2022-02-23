@@ -5,9 +5,26 @@
     width: 100%;
     margin: 3rem auto 3rem auto;
 
+    & a:not(&__read-more) {
+      color: #f4f4f4;
+      font-weight: bold;
+      border-bottom: 2px solid #fa9312;
+
+      &:hover,
+      &:active {
+        background: #fa9312;
+        color: #111827;
+      }
+    }
+
     h1 {
       font-weight: bold;
       color: #e5ad11;
+
+      span {
+        background: #1a3162;
+        padding: 3px 14px;
+      }
     }
 
     & > img {
