@@ -4,6 +4,12 @@
   font-weight: bold;
   color: $main-text-color-dark;
 
+  &:hover,
+  &:active {
+    background: #f4f4f4;
+    color: #111827;
+  }
+
   &::after {
     content: "";
     // -webkit-animation: cursor .8s infinite;
