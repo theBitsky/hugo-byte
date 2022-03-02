@@ -5,7 +5,11 @@
         <img src="{{ .Site.BaseURL }}{{ .Page.Params.Image }}" alt="" />
       </a>
     {{ end }}
-    <div>
+    {{ $postContentClass := "" }}
+    {{ if .Page.Params.Image }}
+      {{ $postContentClass = "post__content_image" }}
+    {{ end }}
+    <div class="post__content {{ $postContentClass }}">
       <header>
         {{ if .Scratch.Get "is_label_visible" }}
           {{ if not .Page.Params.Image }}
