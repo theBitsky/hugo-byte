@@ -16,7 +16,7 @@
             {{ if (not (isset .Page.Params "type")) | or (eq .Page.Params.type "") | or (eq .Page.Params.type "note") }}
               <a href="/notes" class="post__type post__type_note">
                 <i aria-hidden="true" class="fa fa-archive"></i>
-                note/
+                notes/
               </a>
             {{ end }}
             {{ if eq .Page.Params.Type "blog" }}
@@ -30,7 +30,7 @@
             {{ if (not (isset .Page.Params "type")) | or (eq .Page.Params.type "") | or (eq .Page.Params.type "note") }}
               <a href="/notes" class="post__type post__type_left post__type_note">
                 <i aria-hidden="true" class="fa fa-archive"></i>
-                note/
+                notes/
               </a>
             {{ end }}
             {{ if eq .Page.Params.Type "blog" }}
