@@ -2,7 +2,7 @@
   <div class="post__inner">
     {{ if .Page.Params.Image }}
       <a class="post__image" href="{{ .Params.externalLink | default .RelPermalink }}">
-        <img src="{{ .Site.BaseURL }}{{ .Page.Params.Image }}" alt="" />
+        <img src="/{{ .Page.Params.Image }}" alt="{{ .Title }}" />
       </a>
     {{ end }}
     {{ $postContentClass := "" }}

@@ -30,7 +30,7 @@
   <article class="content">
     {{ if .Page.Params.Image }}
         <div class="content__image">
-      <Img class="content__image-inner" src="{{ .Site.BaseURL }}{{ .Page.Params.Image }}" alt="{{ .Title }}" ></Img>
+      <Img class="content__image-inner" src="/{{ .Page.Params.Image }}" alt="{{ .Title }}" ></Img>
           {{ if .Page.Params.ImageCopyright }}
             <div
               style="
@@ -40,7 +40,7 @@
                 margin-right: 20px;
               "
             >
-              Photo by 
+              Photo by
               {{ if .Page.Params.ImageCopyrightUrl }}
                 <a href="{{.Page.Params.ImageCopyrightUrl}}">{{ .Page.Params.ImageCopyright }}</a>
               {{ else }}
