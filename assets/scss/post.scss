@@ -37,6 +37,8 @@
     h4 {
       color: #f4f4f4;
       font-weight: bold;
+      background: linear-gradient(-90deg, #1a3162, #453762);
+      padding: 3px 14px;
 
       &:hover,
       &:active {
@@ -50,7 +52,7 @@
 
   section {
     & > p {
-      font-size: .875rem !important;
+      font-size: 0.875rem !important;
     }
   }
 
@@ -93,7 +95,7 @@
     &:active {
       background: #f4f4f4;
       color: #111827;
-      border-color: #f4f4f4; 
+      border-color: #f4f4f4;
 
       i {
         color: #111827;

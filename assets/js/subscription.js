@@ -8,12 +8,15 @@
 
   const subscriptionBlock = document.querySelector('#subscription');
 
+  if (!subscriptionBlock) {
+      return;
+  }
+
   const subscriptionForm = subscriptionBlock.querySelector('form');
   const subscriptionSuccessMsg = subscriptionBlock.querySelector(`.${subscriptionSuccessMsgClassName}`);
   const subscriptionFailureMsg = subscriptionBlock.querySelector(`.${subscriptionFailureMsgClassName}`);
 
   if ([subscriptionBlock, subscriptionForm, subscriptionSuccessMsg, subscriptionFailureMsg].some((item) => !item)) {
-    console.error('There are no some or all required elements of subscription form');
     return;
   }
 
