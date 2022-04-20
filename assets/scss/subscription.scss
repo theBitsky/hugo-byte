@@ -9,7 +9,7 @@
   margin-left: auto;
   margin-right: auto;
 
-  a {
+  a:not(.subscription__btn) {
     color: #f4f4f4;
     border-bottom: 3px solid #fa9312;
     box-shadow: inset 0 -7px 0 rgba(178, 192, 232, 0.25);
@@ -54,20 +54,25 @@
       max-width: 350px;
       width: 100%;
     }
+  }
 
-    button {
-      height: 46px;
-      border-radius: 0 4px 4px 0;
-      padding: 10px 20px;
-      font-size: 20px;
-      font-weight: bold;
-      background: #1a3162;
+  &__btn {
+    height: 46px;
+    border-radius: 0 4px 4px 0;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    background: #1a3162;
+    color: #f4f4f4;
 
-      &:hover,
-      &:active {
-        background: #f4f4f4;
-        color: #090e1a;
-      }
+    &:hover,
+    &:active {
+      background: #f4f4f4;
+      color: #090e1a;
+    }
+
+    &_no-form {
+      border-radius: 4px;
     }
   }
 

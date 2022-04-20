@@ -8,24 +8,28 @@
   </header>
   <section class="subscription__body">
     <p>{{ .Site.Params.Subscription.description | safeHTML }}</p>
-    <form action="{{ .Site.Params.Subscription.endpoint }}" method="post">
-      <input
-        aria-label="Your email"
-        type="email"
-        name="email_address"
-        placeholder="Email address"
-        required
-      />
-      <button type="submit">Subscribe_</button>
-    </form>
-    <div class="subscription__success-msg">
-      <i class="fa fa-check-circle" aria-hidden="true"></i>
-      {{ .Site.Params.Subscription.successMessage }}
-    </div>
-    <div class="subscription__failure-msg">
-      <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-      {{ .Site.Params.Subscription.failureMessage }}
-    </div>
+    {{ if .Site.Params.Subscription.subscriptionPageLink }}
+      <a target="_blank" class="subscription__btn subscription__btn_no-form" href="{{ .Site.Params.Subscription.subscriptionPageLink }}">Subscribe_</a>
+    {{ else }}
+      <form action="{{ .Site.Params.Subscription.endpoint }}" method="post">
+        <input
+          aria-label="Your email"
+          type="email"
+          name="email_address"
+          placeholder="Email address"
+          required
+        />
+        <button class="subscription__btn" type="submit">Subscribe_</button>
+      </form>
+      <div class="subscription__success-msg">
+        <i class="fa fa-check-circle" aria-hidden="true"></i>
+        {{ .Site.Params.Subscription.successMessage }}
+      </div>
+      <div class="subscription__failure-msg">
+        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+        {{ .Site.Params.Subscription.failureMessage }}
+      </div>
+    {{ end }}
   </section>
 </div>
 {{ end }}

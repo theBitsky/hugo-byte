@@ -1,5 +1,8 @@
 <div>
   <br>
+  {{ define "title" }}
+    {{ .Title }}
+  {{ end }}
   <!-- for basic page -->
   {{ if and (eq .Type "page") (eq .Type "notes") }}
     <nav class="breadcrumbs">
