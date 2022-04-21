@@ -7,7 +7,7 @@
     <div class="post-tags post-tags_column">
       {{ range .Site.Params.sidePanelTags }}
         <div class="post-tags__tag">
-          <a href="/tags/{{ . }}" class="post-tag">#{{ . }}</a>
+          <a href="/tags/{{ . }}" class="post-tag p-category">#{{ . }}</a>
         </div>
       {{ end }}
     </div>

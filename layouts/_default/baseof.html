@@ -14,7 +14,7 @@
   <body class="preload-transitions {{ $csClass }}{{ if .Site.Params.rtl }} rtl{{ end }}"
         onload="{{ if .Site.Params.enableTwemoji }} twemoji.parse(document.body); {{ end }}"
   >
-    <div class="main-layout">
+    <div class="main-layout h-card">
       <div>
         {{ partial "header.html" . }}
 

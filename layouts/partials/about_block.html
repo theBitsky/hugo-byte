@@ -1,9 +1,9 @@
 <div class="about-block">
-  <img class="avatar" src="{{ .Site.Params.avatarURL }}" alt="avatar" />
+  <img class="avatar u-photo u-logo" src="{{ .Site.Params.avatarURL }}" alt="avatar" />
   <div>
     <h1>{{ .Site.Params.greetingTitle | safeHTML }}</h1>
     {{ range .Site.Params.blurbContent }}
-      <p>{{ . | safeHTML }}</p>
+      <p class="p-note">{{ . | safeHTML }}</p>
     {{ end }}
     <p>
       <span>More on
@@ -12,7 +12,7 @@
       </span>
       {{ if .Site.Params.email }}
         <span> • </span>
-        <span>Contact <a class="about-block__link about-block__link_email" href="mailto:{{ .Site.Params.email }}" rel="me">
+        <span>Contact <a class="about-block__link about-block__link_email u-email" href="mailto:{{ .Site.Params.email }}" rel="me">
           <i aria-hidden="true" class="fa fa-envelope"></i> {{ .Site.Params.email }}</a>
         </span>
       {{ end }}
