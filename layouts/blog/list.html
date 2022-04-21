@@ -2,10 +2,10 @@
   {{ title (i18n (lower .Title)) | default .Title }} · {{ .Site.Title }}
 {{ end }}
 {{ define "content" }}
-  <div>
+  <div class="h-feed">
     <br>
     <div class="page-title">
-      <h1>
+      <h1 class="p-name">
           {{ title (i18n (lower .Title)) | default .Title }}
       </h1>
     </div>
