@@ -30,7 +30,7 @@
     {{ .Scratch.Set "go_back_label" "Go Back To Notes" }}
     {{ partial "go_back.html" . }}
   {{ end }}
-  <article class="content">
+  <article class="content h-entry">
     {{ if .Page.Params.Image }}
         <div class="content__image">
       <Img class="content__image-inner" src="/{{ .Page.Params.Image }}" alt="{{ .Title }}" ></Img>
@@ -56,12 +56,12 @@
     <div class="content__inner">
       <header>
         {{ if eq .Params.Type "blog" }}
-          <h1>{{ .Title }}</h1>
+          <h1 class="p-name">{{ .Title }}</h1>
         {{ end }}
         {{ if and (eq .Kind "page") (or (eq .Params.Type "blog") (eq .Params.Type "note") (eq .Params.Type "") (not (isset .Params "type"))) }}
           <div class="content__info">
-            <time dateTime={{ .Date.Format (.Site.Params.dateFormat | default "02/01/2006" ) }}>
-              <i aria-hidden="true" class="fa fa-calendar"></i>
+            <i aria-hidden="true" class="fa fa-calendar"></i>
+            <time class="dt-published" dateTime={{ .Date.Format (.Site.Params.dateFormat | default "02/01/2006" ) }}>
               {{ .Date.Format (.Site.Params.dateFormat | default "02/01/2006" ) }}
             </time>
           </div>
@@ -73,7 +73,7 @@
           <hr />
         {{ end }}
       </header>
-      <section>
+      <section class="e-content">
         {{ .Content }}
       </section>
     </div>

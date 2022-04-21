@@ -1,4 +1,4 @@
-<article class="post-card">
+<article class="post-card h-entry">
   {{ if .Page.Params.Image }}
     <a href="{{ .Params.externalLink | default .RelPermalink }}" class="post-card__thumbnail">
       <img src="{{ .Site.BaseURL }}{{ .Page.Params.Image }}" alt="" />
@@ -9,10 +9,10 @@
       {{ with .Page.Params.Tags }}
         {{ partial "taxonomy/tags.html" . }}
       {{ end }}
-      <a class="post-card__title" href="{{ .Params.externalLink | default .RelPermalink }}">{{ .Title }}</a>
+      <a class="post-card__title p-name" href="{{ .Params.externalLink | default .RelPermalink }}">{{ .Title }}</a>
     </header>
     <section class="post-card__excerpt">
-      <p>
+      <p class="p-summary">
         {{ if .Page.Params.Excerpt }}
           {{ .Page.Params.Excerpt }}
         {{ else }}
@@ -22,7 +22,7 @@
     </section>
     <footer>
       <div class="post-card__info">
-        <time dateTime={{ .Date.Format (.Site.Params.dateFormat | default "02/01/2006" ) }}>
+        <time class="dt-published" dateTime={{ .Date.Format (.Site.Params.dateFormat | default "02/01/2006" ) }}>
           {{ .Date.Format (.Site.Params.dateFormat | default "02/01/2006" ) }}
         </time>
       </div>
