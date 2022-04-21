@@ -1,15 +1,5 @@
-<br>
 <main>
-  <div class="greeting">
-    <div>
-      <h1>{{ .Site.Params.greetingTitle | safeHTML }}</h1>
-      {{ range .Site.Params.blurbContent }}
-        <p>{{ . | safeHTML }}</p>
-      {{ end }}
-      <p>More on <a class="greeting__read-more" href="/about"><i aria-hidden="true" class="fa fa-user color-skyblue"></i> about.md</a></p>
-    </div>
-    <img class="avatar" src="{{ .Site.Params.avatarURL }}" alt="avatar" />
-  </div>
+  {{ partial "about_block" . }}
   <div>
     {{ partial "subscription" . }}
   </div>
