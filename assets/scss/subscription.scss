@@ -64,15 +64,17 @@
     font-weight: bold;
     background: #1a3162;
     color: #f4f4f4;
+    box-shadow: none !important;
+    border: none !important;
 
     &:hover,
     &:active {
-      background: #f4f4f4;
-      color: #090e1a;
+      background: #f4f4f4 !important;
+      color: #090e1a !important;
     }
 
     &_no-form {
-      border-radius: 4px;
+      border-radius: 2px;
     }
   }
 

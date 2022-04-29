@@ -38,6 +38,7 @@
       font-weight: bold;
       background: linear-gradient(-90deg, #1a3162, #453762);
       padding: 3px 14px;
+      font-size: 1.6rem;
 
       &:hover,
       &:active {
@@ -62,8 +63,10 @@
     // border-radius: 3px;
     margin-right: 1rem;
     font-weight: bold;
-    border: 2px solid #1f2938;
-    border-radius: 3px;
+    // border: 2px solid #1f2938;
+    // background: #1f2938;
+    background: none;
+    // border-radius: 3px;
 
     &_blog {
       //background: #2a99ad;
@@ -84,10 +87,19 @@
       top: 0px;
       left: 0px;
       border-radius: 3px 0 3px 0;
-      background: #111827;
+      // background: #111827;
+      background: none;
       border: none;
-      border-right: 2px solid #1f2938;
-      border-bottom: 2px solid #1f2938;
+      // border-right: 2px solid #1f2938;
+      // border-bottom: 2px solid #1f2938;
+
+      background: #f4f4f4;
+      color: #111827;
+      border-color: #f4f4f4;
+
+      i {
+        color: #111827;
+      }
     }
 
     &:hover,
