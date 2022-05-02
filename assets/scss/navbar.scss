@@ -10,6 +10,15 @@
     padding: 0 2px 0 7px;
     font-weight: bold;
 
+    i {
+      // background: -webkit-linear-gradient(#5c55c9, #b555c9);
+      // background-clip: border-box;
+      // background-clip: border-box;
+      // background-clip: border-box;
+      // -webkit-background-clip: text;
+      // -webkit-text-fill-color: transparent;
+    }
+
     &_active {
       color: $second-text-color-dark;
       border-bottom: 2px solid;

@@ -1,4 +1,15 @@
 <main>
+  <div>
+  {{ if .Site.Params.isFloatFollowBtnShown }}
+    {{ if .Site.Params.Subscription.subscriptionPageLink }}
+      <a target="_blank" href="{{ .Site.Params.Subscription.subscriptionPageLink }}" class="subscribe-float-btn">
+        <!-- <i aria-hidden="true" class="fa fa-envelope"></i> -->
+        <i aria-hidden="true" class="fa fa-plus-square"></i>
+        Follow
+      </a>
+    {{ end }}
+  {{ end }}
+  </div>
   {{ partial "about_block" . }}
   <div>
     {{ partial "subscription" . }}
