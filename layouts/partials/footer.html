@@ -9,6 +9,14 @@
             {{ now.Year }}
           {{ end }}
         </div>
+        {{ if .Site.Params.isIndieWebRingShown }}
+          <div>
+            <a href="https://xn--sr8hvo.ws/%F0%9F%9A%A7%F0%9F%8D%9D%F0%9F%92%90/previous">←</a>
+            An IndieWeb Webring 🕸💍
+            <a href="https://xn--sr8hvo.ws/%F0%9F%9A%A7%F0%9F%8D%9D%F0%9F%92%90/next">→</a>
+          </div>
+        {{ end }}
+        {{ if .Site.Menus.footer }}
         <div>
           <nav class="navbar">
             {{ with .Site.Menus.footer}}
@@ -18,6 +26,7 @@
             {{ end }}
           </nav>
         </div>
+        {{ end }}
         <div>
           {{ if not .Site.Params.hideCredits }}
             {{ i18n "powered_by" }} <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/byteski/hugo-byte">Byte theme</a>
