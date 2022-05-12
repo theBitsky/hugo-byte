@@ -1,5 +1,5 @@
 <div class="about-block h-card">
-  <img class="avatar u-photo u-logo" src="{{ .Site.Params.avatarURL }}" alt="avatar" />
+  {{ partial "avatar" . }}
   <div>
     <h1>{{ .Site.Params.greetingTitle | safeHTML }}</h1>
     {{ range .Site.Params.blurbContent }}

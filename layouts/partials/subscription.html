@@ -8,28 +8,13 @@
   </header>
   <section class="subscription__body">
     <p>{{ .Site.Params.Subscription.description | safeHTML }}</p>
-    {{ if .Site.Params.Subscription.subscriptionPageLink }}
-      <a target="_blank" class="subscription__btn subscription__btn_no-form" href="{{ .Site.Params.Subscription.subscriptionPageLink }}">Subscribe_</a>
-    {{ else }}
-      <form action="{{ .Site.Params.Subscription.endpoint }}" method="post">
-        <input
-          aria-label="Your email"
-          type="email"
-          name="email_address"
-          placeholder="Email address"
-          required
-        />
-        <button class="subscription__btn" type="submit">Subscribe_</button>
+    <div id="revue-embed">
+      <form action="{{ .Site.Params.Subscription.endpoint }}" method="post" id="revue-form" name="revue-form"  target="_blank">
+        <input class="revue-form-field" placeholder="Your email address..." type="email" name="member[email]" id="member_email">
+        <input class="subscription__btn" type="submit" value="Subscribe" name="member[subscribe]" id="member_submit" />
       </form>
-      <div class="subscription__success-msg">
-        <i class="fa fa-check-circle" aria-hidden="true"></i>
-        {{ .Site.Params.Subscription.successMessage }}
-      </div>
-      <div class="subscription__failure-msg">
-        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-        {{ .Site.Params.Subscription.failureMessage }}
-      </div>
-    {{ end }}
+      <div class="revue-form-footer">By subscribing, you agree with Revue’s <a target="_blank" href="https://www.getrevue.co/terms">Terms of Service</a> and <a target="_blank" href="https://www.getrevue.co/privacy">Privacy Policy</a>.</div>
+    </div>
   </section>
 </div>
 {{ end }}
