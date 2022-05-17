@@ -1,4 +1,5 @@
 <div>
+  {{ partial "subscribe_float_btn.html" . }}
   <br>
   {{ define "title" }}
     {{ .Title }}
@@ -78,7 +79,7 @@
       </section>
     </div>
   </article>
-  <div>
+  <div id="subscription">
     {{ partial "subscription" . }}
   </div>
   <div class="container">

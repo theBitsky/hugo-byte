@@ -2,8 +2,8 @@
   background: #090e1a;
   padding: 25px 25px 35px 25px;
   margin-bottom: 3rem;
-  border-radius: 4px;
-  border: 2px solid #1f2938;
+  // border-radius: 4px;
+  border: 1px solid #1f2938;
   max-width: 800px;
   width: 100%;
   margin-left: auto;
@@ -25,6 +25,7 @@
   h3 {
     font-weight: bold;
     margin-bottom: 1rem;
+    text-transform: uppercase;
 
     i {
       // color: #fa9312;
@@ -41,7 +42,6 @@
   form {
     display: flex;
     align-items: center;
-    margin-bottom: 1rem;
 
     input[type="email"] {
       padding: 14px 20px;
@@ -49,20 +49,21 @@
       border: none;
       outline: none;
       color: #f4f4f4;
-      border-radius: 4px 0 0 4px;
+      // border-radius: 4px 0 0 4px;
       height: 46px;
-      max-width: 350px;
-      width: 100%;
+      // max-width: 270px;
+      // width: 100%;
+      width: 300px;
     }
   }
 
   &__btn {
     height: 46px;
-    border-radius: 0 4px 4px 0;
+    // border-radius: 0 4px 4px 0;
     padding: 10px 20px;
     font-size: 20px;
     font-weight: bold;
-    background: #1a3162;
+    background: linear-gradient(-90deg, #1a3162, #453762);
     color: #f4f4f4;
     box-shadow: none !important;
     border: none !important;
@@ -74,30 +75,44 @@
     }
 
     &_no-form {
-      border-radius: 2px;
+      // border-radius: 2px;
     }
   }
 
-  &__success-msg {
-    display: none;
+  &__form-wrapper {
+    display: flex;
+    align-content: center;
+    margin-bottom: 1rem;
 
-    i {
-      color: #4db140;
-    }
-
-    &_visible {
-      display: block;
+    h4 {
+      line-height: 2.6rem;
+      margin-left: 1rem;
+      margin-bottom: 0;
     }
   }
-  &__failure-msg {
-    display: none;
 
-    i {
-      color: #c9557a;
+  &__agreement {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 800px) {
+  .subscription {
+    form {
+      flex-direction: column;
+      align-items: start;
+      justify-content: start;
+
+      input[type="email"] {
+        max-width: 100%;
+        width: 100%;
+        // border-radius: 4px 4px 0 0;
+      }
     }
 
-    &_visible {
-      display: block;
+    &__btn {
+      width: 100%;
+      // border-radius: 0 0 4px 4px;
     }
   }
 }
