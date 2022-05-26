@@ -48,12 +48,9 @@ const animateCountUp = (el, fn) => {
             // isIntersecting is true when element and viewport are overlapping
             // isIntersecting is false when element and viewport don't overlap
             if(entries[0].isIntersecting === true && !statuses[index]) {
-                const delay = setTimeout(() => {
-                    animateCountUp(el, () => {
-                        clearTimeout(delay);
-                        statuses[index] = true;
-                    });
-                }, 1000);
+                animateCountUp(el, () => {
+                    statuses[index] = true;
+                });
             }
         }, { threshold: [0] });
 
