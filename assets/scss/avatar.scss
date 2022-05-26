@@ -6,15 +6,15 @@
   // border: 3px solid red;
   overflow: hidden;
   margin: 0 auto 3rem auto;
-  padding: 4px;
-  background: linear-gradient(0deg, #d92c7b, #f9a264);
+  padding: 2px;
+  background: linear-gradient(0deg, #f9a264, #d92c7b);
   display: block;
   border: none !important;
   outline: none;
 
   &:hover,
   &:active {
-    background: linear-gradient(0deg, #f9a264, #d92c7b) !important;
+    background: linear-gradient(0deg, #d92c7b, #f9a264) !important;
     border: none !important;
     outline: none;
   }

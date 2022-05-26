@@ -1,5 +1,16 @@
 <!-- it's used on the home page and blog -->
 <article class="post h-entry">
+  <div class="post__line">
+    <div class="post__line-point"></div>
+    <div class="post__line-content">
+      <div>
+        <time class="dt-published" dateTime={{ .Date.Format (.Site.Params.dateFormat | default "02/01/2006" ) }}>
+          {{ .Date.Format (.Site.Params.dateFormat | default "02/01/2006" ) }}
+        </time>
+        <!-- <i aria-hidden="true" class="fa fa-calendar"></i> -->
+      </div>
+    </div>
+  </div>
   <div class="post__inner">
     {{ if .Page.Params.Image }}
       <a class="post__image" href="{{ .Params.externalLink | default .RelPermalink }}">
@@ -61,11 +72,11 @@
       </section>
     </div>
   </div>
-  <div class="post__info">
+  <!-- <div class="post__info">
     <i aria-hidden="true" class="fa fa-calendar"></i>
     <time class="dt-published" dateTime={{ .Date.Format (.Site.Params.dateFormat | default "02/01/2006" ) }}>
       {{ .Date.Format (.Site.Params.dateFormat | default "02/01/2006" ) }}
     </time>
-  </div>
+  </div> -->
 </article>
 
