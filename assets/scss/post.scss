@@ -11,7 +11,7 @@
 
   &__line {
     width: 3px;
-    margin-right: 1.5rem;
+    margin-right: 2rem;
     background: #1f2937;
     height: calc(100% - 0px);
     position: relative;
@@ -19,19 +19,50 @@
 
     &-content {
       position: absolute;
-      left: -110px;
+      left: -120px;
       text-align: right;
     }
 
     &-point {
       background: #1f2937;
-      width: 15px;
-      height: 15px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       position: absolute;
       top: -5px;
-      left: -6px;
+      left: -18px;
       border: 3px solid #05080f;
+      text-align: center;
+      line-height: 35px;
+
+      &:hover,
+      &:active {
+        background: #f4f4f4;
+        color: #111827;
+        border-color: #f4f4f4;
+
+        i {
+          color: #111827;
+        }
+      }
+    }
+
+    &-views {
+      margin-top: 23px;
+    }
+
+    &-views-point {
+      background: #1f2937;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      position: absolute;
+      top: 45px;
+      left: -13px;
+      border: 2px solid #05080f;
+      text-align: center;
+      line-height: 25px;
+      font-size: 13px;
     }
   }
 
@@ -85,17 +116,17 @@
   }
 
   &__type {
-    display: none; // temp
+    // display: none; // temp
 
     // background: #2a99ad;
-    color: #f4f4f4;
-    padding: 3px 10px;
+    // color: #f4f4f4;
+    // padding: 3px 10px;
     // border-radius: 3px;
-    margin-right: 1rem;
-    font-weight: bold;
+    // margin-right: 1rem;
+    // font-weight: bold;
     // border: 2px solid #1f2938;
     // background: #1f2938;
-    background: none;
+    // background: none;
     // border-radius: 3px;
 
     &_blog {
@@ -132,16 +163,16 @@
       }
     }
 
-    &:hover,
-    &:active {
-      background: #f4f4f4;
-      color: #111827;
-      border-color: #f4f4f4;
+    // &:hover,
+    // &:active {
+    //   background: #f4f4f4;
+    //   color: #111827;
+    //   border-color: #f4f4f4;
 
-      i {
-        color: #111827;
-      }
-    }
+    //   i {
+    //     color: #111827;
+    //   }
+    // }
   }
 
   &__image {
@@ -209,6 +240,10 @@
     &__info {
       width: 100%;
       text-align: left;
+    }
+
+    &__line {
+      display: none;
     }
   }
 }
