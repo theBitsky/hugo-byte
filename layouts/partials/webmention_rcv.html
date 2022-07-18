@@ -1,4 +1,4 @@
-{{ $domain := "https://thebitsky.net" }} <!-- Hard-code the domain during testing on localhost, branches -->
+{{ $domain := "https://maxkovalevsky.com" }} <!-- Hard-code the domain during testing on localhost, branches -->
 {{ $num_mentions_max := 200 }}
 {{ $webmentions_rcv := getJSON (printf "https://webmention.io/api/mentions?target=%s%s&per-page=%d&page=0" $domain .RelPermalink $num_mentions_max) }}
 
